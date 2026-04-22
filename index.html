@@ -198,6 +198,9 @@
 
     .mobile-nav.open {
       display: block;
+      /* AutoAnimate handles the height, but keeping overflow hidden 
+     prevents flickering during the animation */
+      overflow: hidden;
     }
 
     .mobile-nav ul {
@@ -2077,6 +2080,25 @@
         });
       });
     })();
+  </script>
+  <script type="module">
+    import autoAnimate from 'https://cdn.jsdelivr.net/npm/@formkit/auto-animate'
+
+    // 1. Animate the Mobile Navigation
+    // This will make the mobile menu slide/fade smoothly when toggled
+    const mobileNav = document.getElementById('mobileNav');
+    autoAnimate(mobileNav);
+
+    // 2. Animate the Contact Form
+    // This will make the form fields transition smoothly into the 
+    // "Success Message" when the user submits the form.
+    const formWrap = document.querySelector('.contact-form-wrap');
+    autoAnimate(formWrap);
+
+    // 3. Optional: Animate the Hero Slider dots
+    // This adds a subtle "morph" effect when the active dot changes
+    const heroDots = document.getElementById('heroDots');
+    autoAnimate(heroDots);
   </script>
 </body>
 
